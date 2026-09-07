@@ -245,8 +245,8 @@ export function calcularTotal(
     alumnos: Alumno[],
     callback: (alumno: Alumno) => number
 ): number {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (Hecho)
+    return alumnos.reduce((total, alumno) => total + callback(alumno), 0)
 }
 
 // -----------------------------------------------------------------------------
