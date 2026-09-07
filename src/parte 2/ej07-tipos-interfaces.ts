@@ -36,7 +36,7 @@ export function crearAlumnoInterface(
     nota: number,
     ciudad: string
 ): AlumnoInterface {
-    // TODO
+    // TODO (Hecho)
     return {
         legajo,
         nombre,
@@ -57,6 +57,8 @@ export type AlumnoType = {
     apellido: string;
     edad: number;
     email: string;
+    nota: number;
+    ciudad: string;
 };
 
 export function crearAlumnoType(
@@ -64,8 +66,18 @@ export function crearAlumnoType(
     nombre: string,
     apellido: string,
     edad: number,
-    email: string
+    email: string,
+    nota: number,
+    ciudad: string
 ): AlumnoType {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (Hecho)
+    return {
+        legajo,
+        nombre,
+        apellido,
+        edad,
+        email,
+        nota,
+        ciudad
+    };
 }
