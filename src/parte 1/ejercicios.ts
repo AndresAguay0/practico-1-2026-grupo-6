@@ -228,8 +228,13 @@ export function buscar<T>(
     elementos: T[],
     callback: (elemento: T) => boolean
 ): T | undefined {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (Hecho)
+    for (const elemento of elementos) {
+        if (callback(elemento) === true) {
+            return elemento;
+        }
+    }
+    return undefined;
 }
 
 // -----------------------------------------------------------------------------
