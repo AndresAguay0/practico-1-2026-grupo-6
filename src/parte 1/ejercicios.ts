@@ -306,8 +306,20 @@ export interface Estadisticas {
 export function obtenerEstadisticas(
     alumnos: Alumno[]
 ): Estadisticas {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (Hecho)
+    const total = alumnos.length;
+    const aprobados = cantidadAprobados(alumnos);
+    const desaprobados = total - aprobados;
+    const prom = calcularPromedio(alumnos);
+    const mejorAlum = obtenerMejorAlumno(alumnos);
+
+    return {
+        cantidadTotal: total,
+        cantidadAprobados: aprobados,
+        cantidadDesaprobados: desaprobados,
+        promedio: prom,
+        mejorAlumno: mejorAlum
+    };
 }
 
 // -----------------------------------------------------------------------------
