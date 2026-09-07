@@ -32,10 +32,20 @@ export function crearAlumnoInterface(
     nombre: string,
     apellido: string,
     edad: number,
-    email: string
+    email: string,
+    nota: number,
+    ciudad: string
 ): AlumnoInterface {
     // TODO
-    throw new Error("Implementar");
+    return {
+        legajo,
+        nombre,
+        apellido,
+        edad,
+        email,
+        nota,
+        ciudad
+    };
 }
 
 // -----------------------------------------------------------------------------
