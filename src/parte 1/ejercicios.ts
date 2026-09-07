@@ -267,8 +267,20 @@ export function calcularTotal(
 export function agruparPorCiudad(
     alumnos: Alumno[]
 ): Record<string, Alumno[]> {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (Hecho)
+    return alumnos.reduce((acumulador, alumno) => {
+        const ciudad = alumno.ciudad;
+
+        // Si una ciudad todavia no existe en el objeto acumulador,
+        // se crea una lista vacía nueva para esa ciudad.
+        if (!acumulador[ciudad]) {
+            acumulador[ciudad] = [];
+        }
+
+        acumulador[ciudad].push(alumno);
+
+        return acumulador;
+    }, {} as Record<string, Alumno[]>);
 }
 
 // -----------------------------------------------------------------------------
