@@ -83,24 +83,32 @@ export class Alumno extends Persona {
     inscribirse(materia: Materia): void {
         // TODO: agregar la materia a este alumno (si no estaba ya) y avisarle
         // a la materia llamando a materia.inscribirAlumno(this).
-        throw new Error("Implementar");
+        const yaEstaInscripto = this.materias.some((m) => m.codigo === materia.codigo);
+
+        if (!yaEstaInscripto){
+            this.materias.push(materia);
+            materia.inscribirAlumno(this);
+        }
     }
 
     quitarMateria(materia: Materia): void {
         // TODO: quitar la materia de este alumno y avisarle a la materia
         // llamando a materia.quitarAlumno(this).
-        throw new Error("Implementar");
+        if (this.materias.some((m) => m.codigo === materia.codigo)){
+            this.materias = this.materias.filter((m) => m.codigo !== materia.codigo);
+            materia.quitarAlumno(this);
+        }
     }
 
     getMaterias(): Materia[] {
         // TODO: devolver una copia, no la referencia interna.
-        throw new Error("Implementar");
+        return this.materias.slice();
     }
 
     obtenerInformacion(): string {
         // TODO: devolver un string que incluya nombre, apellido, legajo y
         // la cantidad de materias inscriptas, mencionando "Alumno".
-        throw new Error("Implementar");
+        return `Alumno: ${this.nombre} ${this.apellido}, legajo: ${this.legajo}, materias inscriptas: ${this.materias.length}`;
     }
 }
 
@@ -120,17 +128,22 @@ export class Docente extends Persona {
     asignarMateria(materia: Materia): void {
         // TODO: agregar la materia a este docente (si no estaba ya) y
         // avisarle a la materia llamando a materia.asignarDocente(this).
-        throw new Error("Implementar");
+        const yaExisteMateria = this.materiasAsignadas.some((m) => m.codigo === materia.codigo)
+
+        if (!yaExisteMateria){
+            this.materiasAsignadas.push(materia);
+            materia.asignarDocente(this);
+        }
     }
 
     getMateriasAsignadas(): Materia[] {
         // TODO: devolver una copia, no la referencia interna.
-        throw new Error("Implementar");
+        return this.materiasAsignadas.slice();
     }
 
     obtenerInformacion(): string {
         // TODO: devolver un string que incluya nombre, apellido, legajo y
         // especialidad, mencionando "Docente".
-        throw new Error("Implementar");
+        return `Docente: ${this.nombre} ${this.apellido}, legajo: ${this.legajo}, especialidad: ${this.especialidad}`;
     }
 }
