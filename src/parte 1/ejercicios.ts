@@ -228,8 +228,8 @@ export function buscar<T>(
     elementos: T[],
     callback: (elemento: T) => boolean
 ): T | undefined {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (Hecho)
+    return elementos.find(callback);
 }
 
 // -----------------------------------------------------------------------------
@@ -245,8 +245,8 @@ export function calcularTotal(
     alumnos: Alumno[],
     callback: (alumno: Alumno) => number
 ): number {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (Hecho)
+    return alumnos.reduce((total, alumno) => total + callback(alumno), 0)
 }
 
 // -----------------------------------------------------------------------------
@@ -267,8 +267,20 @@ export function calcularTotal(
 export function agruparPorCiudad(
     alumnos: Alumno[]
 ): Record<string, Alumno[]> {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (Hecho)
+    return alumnos.reduce((acumulador, alumno) => {
+        const ciudad = alumno.ciudad;
+
+        // Si una ciudad todavia no existe en el objeto acumulador,
+        // se crea una lista vacía nueva para esa ciudad.
+        if (!acumulador[ciudad]) {
+            acumulador[ciudad] = [];
+        }
+
+        acumulador[ciudad].push(alumno);
+
+        return acumulador;
+    }, {} as Record<string, Alumno[]>);
 }
 
 // -----------------------------------------------------------------------------
@@ -294,8 +306,20 @@ export interface Estadisticas {
 export function obtenerEstadisticas(
     alumnos: Alumno[]
 ): Estadisticas {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (Hecho)
+    const total = alumnos.length;
+    const aprobados = cantidadAprobados(alumnos);
+    const desaprobados = total - aprobados;
+    const prom = calcularPromedio(alumnos);
+    const mejorAlum = obtenerMejorAlumno(alumnos);
+
+    return {
+        cantidadTotal: total,
+        cantidadAprobados: aprobados,
+        cantidadDesaprobados: desaprobados,
+        promedio: prom,
+        mejorAlumno: mejorAlum
+    };
 }
 
 // -----------------------------------------------------------------------------
