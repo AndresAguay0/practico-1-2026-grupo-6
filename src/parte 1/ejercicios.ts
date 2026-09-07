@@ -229,12 +229,7 @@ export function buscar<T>(
     callback: (elemento: T) => boolean
 ): T | undefined {
     // TODO (Hecho)
-    for (const elemento of elementos) {
-        if (callback(elemento) === true) {
-            return elemento;
-        }
-    }
-    return undefined;
+    return elementos.find(callback);
 }
 
 // -----------------------------------------------------------------------------
