@@ -27,8 +27,7 @@ import { alumnos, type Alumno } from "../models/db.js";
 // obtenerNombres(alumnos)
 // -> ["Juan", "María", "Pedro", ...]
 export function obtenerNombres(alumnos: Alumno[]): string[] {
-    // TODO
-    throw new Error("Implementar");
+    return alumnos.map(alumno => alumno.nombre);
 }
 
 // -----------------------------------------------------------------------------
@@ -39,8 +38,7 @@ export function obtenerNombres(alumnos: Alumno[]): string[] {
 // Ejemplo:
 // ["Juan Pérez", "María García", ...]
 export function obtenerNombresCompletos(alumnos: Alumno[]): string[] {
-    // TODO
-    throw new Error("Implementar");
+      return alumnos.map(alumno => `${alumno.nombre} ${alumno.apellido}`);
 }
 
 // -----------------------------------------------------------------------------
@@ -48,8 +46,7 @@ export function obtenerNombresCompletos(alumnos: Alumno[]): string[] {
 // -----------------------------------------------------------------------------
 // Devolver solamente los alumnos que tengan 18 años o más.
 export function obtenerMayoresDeEdad(alumnos: Alumno[]): Alumno[] {
-    // TODO
-    throw new Error("Implementar");
+    return alumnos.filter(alumno => alumno.edad >= 18);
 }
 
 // -----------------------------------------------------------------------------
@@ -58,8 +55,8 @@ export function obtenerMayoresDeEdad(alumnos: Alumno[]): Alumno[] {
 // Un alumno aprueba cuando su nota es mayor o igual a 6.
 // Devolver los alumnos aprobados.
 export function obtenerAprobados(alumnos: Alumno[]): Alumno[] {
-    // TODO
-    throw new Error("Implementar");
+    const aprobados = alumnos.filter(alumno => alumno.nota >= 6);
+    return aprobados;
 }
 
 // -----------------------------------------------------------------------------
@@ -327,9 +324,9 @@ export function obtenerEstadisticas(
 // -----------------------------------------------------------------------------
 // Descomentar estas líneas cuando se hayan implementado las funciones.
 //
-// console.log(obtenerNombres(alumnos).slice(0, 10));
-// console.log(obtenerNombresCompletos(alumnos).slice(0, 10));
-// console.log(obtenerMayoresDeEdad(alumnos).length);
+console.log(obtenerNombres(alumnos).slice(0, 10));
+console.log(obtenerNombresCompletos(alumnos).slice(0, 10));
+console.log(obtenerMayoresDeEdad(alumnos).length);
 // console.log(obtenerAprobados(alumnos).length);
 // console.log(calcularPromedio(alumnos));
 // console.log(obtenerMejorAlumno(alumnos));
