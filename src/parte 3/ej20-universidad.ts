@@ -43,27 +43,33 @@ export class Materia {
 
     inscribirAlumno(alumno: Alumno): void {
         // TODO: agregar el alumno si no está ya inscripto (comparar por legajo).
-        throw new Error("Implementar");
+        if (!this.alumnosInscriptos.some(a => a.legajo === alumno.legajo)) {
+            this.alumnosInscriptos.push(alumno);
+        }
     }
 
     quitarAlumno(alumno: Alumno): void {
         // TODO: quitar el alumno de la lista, si está.
-        throw new Error("Implementar");
+        if (this.alumnosInscriptos.some(a => a.legajo === alumno.legajo)) {
+            this.alumnosInscriptos = this.alumnosInscriptos.filter(a => a.legajo !== alumno.legajo);
+        }
     }
 
     asignarDocente(docente: Docente): void {
         // TODO: agregar el docente si no está ya asignado (comparar por legajo).
-        throw new Error("Implementar");
+        if (!this.docentesAsignados.some(d => d.legajo === docente.legajo)) {
+            this.docentesAsignados.push(docente);
+        }
     }
 
     getAlumnosInscriptos(): Alumno[] {
         // TODO: devolver una copia, no la referencia interna.
-        throw new Error("Implementar");
+        return [...this.alumnosInscriptos];     // los `...` se llaman spread operator y crean un nuevo array con los mismos elementos
     }
 
     getDocentesAsignados(): Docente[] {
         // TODO: devolver una copia, no la referencia interna.
-        throw new Error("Implementar");
+        return [...this.docentesAsignados];     // los `...` se llaman spread operator y crean un nuevo array con los mismos elementos
     }
 }
 
