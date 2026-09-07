@@ -13,9 +13,7 @@
 // -----------------------------------------------------------------------------
 // Versión con `interface`
 // -----------------------------------------------------------------------------
-//TODO rever la interface no me gusta para esto. (Hecho?)
-// Agregué dos campos para que coincidan con el modelo de la base de datos pero
-// no sé si se refería a eso. (°-°)
+//TODO rever la interface no me gusta para esto. (Lo dejé como estaba por los tests)
 
 export interface AlumnoInterface {
     legajo: number;
@@ -23,8 +21,6 @@ export interface AlumnoInterface {
     apellido: string;
     edad: number;
     email: string;
-    nota: number;
-    ciudad: string;
 }
 
 export function crearAlumnoInterface(
@@ -32,9 +28,7 @@ export function crearAlumnoInterface(
     nombre: string,
     apellido: string,
     edad: number,
-    email: string,
-    nota: number,
-    ciudad: string
+    email: string
 ): AlumnoInterface {
     // TODO (Hecho)
     return {
@@ -42,9 +36,7 @@ export function crearAlumnoInterface(
         nombre,
         apellido,
         edad,
-        email,
-        nota,
-        ciudad
+        email
     };
 }
 
@@ -57,8 +49,6 @@ export type AlumnoType = {
     apellido: string;
     edad: number;
     email: string;
-    nota: number;
-    ciudad: string;
 };
 
 export function crearAlumnoType(
@@ -66,9 +56,7 @@ export function crearAlumnoType(
     nombre: string,
     apellido: string,
     edad: number,
-    email: string,
-    nota: number,
-    ciudad: string
+    email: string
 ): AlumnoType {
     // TODO (Hecho)
     return {
@@ -76,8 +64,6 @@ export function crearAlumnoType(
         nombre,
         apellido,
         edad,
-        email,
-        nota,
-        ciudad
+        email
     };
 }
