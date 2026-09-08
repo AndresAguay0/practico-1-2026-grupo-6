@@ -40,5 +40,5 @@ export class Efectivo implements MetodoPago {
 
 export function procesarPago(metodo: MetodoPago, monto: number): void {
     // TODO: delegar el pago al método recibido.
-    throw new Error("Implementar");
+    metodo.pagar(monto);
 }
