@@ -13,7 +13,7 @@
 // -----------------------------------------------------------------------------
 // Versión con `interface`
 // -----------------------------------------------------------------------------
-//TODO rever la interface no me gusta para esto.
+//TODO rever la interface no me gusta para esto. (Lo dejé como estaba por los tests)
 
 export interface AlumnoInterface {
     legajo: number;
@@ -30,8 +30,14 @@ export function crearAlumnoInterface(
     edad: number,
     email: string
 ): AlumnoInterface {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (Hecho)
+    return {
+        legajo,
+        nombre,
+        apellido,
+        edad,
+        email
+    };
 }
 
 // -----------------------------------------------------------------------------
@@ -52,6 +58,12 @@ export function crearAlumnoType(
     edad: number,
     email: string
 ): AlumnoType {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (Hecho)
+    return {
+        legajo,
+        nombre,
+        apellido,
+        edad,
+        email
+    };
 }

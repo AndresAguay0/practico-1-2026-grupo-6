@@ -27,21 +27,28 @@ export class Vehiculo {
 
 export class Auto extends Vehiculo {
     acelerar(): void {
-        // TODO: loguear (console.log) un mensaje que mencione "auto"
-        throw new Error("Implementar");
+        // TODO: loguear (console.log) un mensaje que mencione "auto" (Hecho)
+        console.log(`El auto ${this.marca} ${this.modelo} está acelerando`);
     }
 }
 
 export class Moto extends Vehiculo {
     acelerar(): void {
-        // TODO: loguear un mensaje que mencione "moto"
-        throw new Error("Implementar");
+        // TODO: loguear un mensaje que mencione "moto" (Hecho)
+        console.log(`La moto ${this.marca} ${this.modelo} está acelerando`);
     }
 }
 
 export class Camion extends Vehiculo {
     acelerar(): void {
-        // TODO: loguear un mensaje que mencione "camión"
-        throw new Error("Implementar");
+        // TODO: loguear un mensaje que mencione "camión" (Hecho)
+        console.log(`El camión ${this.marca} ${this.modelo} está acelerando`);
     }
 }
+
+// Le copie el mismo mensaje a cada uno porque sino quedaba muy vacío.
+// Había hecho otra implementación para mejorar el codigo pero me daba error en los tests:
+// {
+//   console.log("Auto:");
+//   super.acelerar();
+// }
