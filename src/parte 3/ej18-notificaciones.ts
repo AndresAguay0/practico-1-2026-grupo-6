@@ -35,5 +35,5 @@ export function enviarNotificaciones(
     mensaje: string
 ): void {
     // TODO: enviar el mensaje a través de cada notificación recibida.
-    return console.log(notificaciones, mensaje);
+    notificaciones.forEach(notificacion => notificacion.enviar(mensaje));
 }
