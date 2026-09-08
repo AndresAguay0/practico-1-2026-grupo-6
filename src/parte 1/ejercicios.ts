@@ -16,6 +16,8 @@
  */
 
 import { alumnos, type Alumno } from "../models/db.js";
+import { Alumno } from "../parte 2/clase-alumno.js";
+import { Alumno } from "../parte 3/ej20-universidad.js";
 
 // -----------------------------------------------------------------------------
 // EJERCICIO 1 - Obtener nombres
@@ -67,8 +69,11 @@ export function obtenerAprobados(alumnos: Alumno[]): Alumno[] {
 //
 // Si el arreglo está vacío, devolver 0.
 export function calcularPromedio(alumnos: Alumno[]): number {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (hecho)
+    if (alumnos.length === 0) {
+        return 0;
+    }
+    return alumnos.reduce((sum, alumno) => sum + alumno.nota, 0) / alumnos.length;
 }
 
 // -----------------------------------------------------------------------------
@@ -77,8 +82,11 @@ export function calcularPromedio(alumnos: Alumno[]): number {
 // Devolver el alumno que tenga la nota más alta.
 // Si el arreglo está vacío, devolver undefined.
 export function obtenerMejorAlumno(alumnos: Alumno[]): Alumno | undefined {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (hecho)
+    if (alumnos.length === 0) {
+        return undefined;
+    }
+    return alumnos.reduce((sum, alumno) => {return alumno.nota > sum.nota ? alumno : sum;});
 }
 
 // -----------------------------------------------------------------------------
@@ -90,8 +98,8 @@ export function buscarPorLegajo(
     alumnos: Alumno[],
     legajo: number
 ): Alumno | undefined {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (hecho)
+    return alumnos.find (alumno => alumno.legajo === legajo);
 }
 
 // -----------------------------------------------------------------------------
@@ -103,8 +111,8 @@ export function buscarPorNombre(
     alumnos: Alumno[],
     nombre: string
 ): Alumno | undefined {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (hecho)
+    return alumnos.find (alumno => alumno.nombre === nombre);
 }
 
 // -----------------------------------------------------------------------------
