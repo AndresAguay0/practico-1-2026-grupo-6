@@ -16,8 +16,8 @@
  */
 
 import { alumnos, type Alumno } from "../models/db.js";
-import { Alumno } from "../parte 2/clase-alumno.js";
-import { Alumno } from "../parte 3/ej20-universidad.js";
+//import { Alumno } from "../parte 2/clase-alumno.js";
+//import { Alumno } from "../parte 3/ej20-universidad.js";
 
 // -----------------------------------------------------------------------------
 // EJERCICIO 1 - Obtener nombres
