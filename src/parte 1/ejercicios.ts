@@ -16,6 +16,8 @@
  */
 
 import { alumnos, type Alumno } from "../models/db.js";
+import { Alumno } from "../parte 2/clase-alumno.js";
+import { Alumno } from "../parte 3/ej20-universidad.js";
 
 // -----------------------------------------------------------------------------
 // EJERCICIO 1 - Obtener nombres
@@ -67,8 +69,11 @@ export function obtenerAprobados(alumnos: Alumno[]): Alumno[] {
 //
 // Si el arreglo está vacío, devolver 0.
 export function calcularPromedio(alumnos: Alumno[]): number {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (hecho)
+    if (alumnos.length === 0) {
+        return 0;
+    }
+    return alumnos.reduce((sum, alumno) => sum + alumno.nota, 0) / alumnos.length;
 }
 
 // -----------------------------------------------------------------------------
@@ -77,8 +82,11 @@ export function calcularPromedio(alumnos: Alumno[]): number {
 // Devolver el alumno que tenga la nota más alta.
 // Si el arreglo está vacío, devolver undefined.
 export function obtenerMejorAlumno(alumnos: Alumno[]): Alumno | undefined {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (hecho)
+    if (alumnos.length === 0) {
+        return undefined;
+    }
+    return alumnos.reduce((sum, alumno) => {return alumno.nota > sum.nota ? alumno : sum;});
 }
 
 // -----------------------------------------------------------------------------
@@ -90,8 +98,8 @@ export function buscarPorLegajo(
     alumnos: Alumno[],
     legajo: number
 ): Alumno | undefined {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (hecho)
+    return alumnos.find (alumno => alumno.legajo === legajo);
 }
 
 // -----------------------------------------------------------------------------
@@ -103,8 +111,8 @@ export function buscarPorNombre(
     alumnos: Alumno[],
     nombre: string
 ): Alumno | undefined {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (hecho)
+    return alumnos.find (alumno => alumno.nombre === nombre);
 }
 
 // -----------------------------------------------------------------------------
@@ -225,8 +233,8 @@ export function buscar<T>(
     elementos: T[],
     callback: (elemento: T) => boolean
 ): T | undefined {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (Hecho)
+    return elementos.find(callback);
 }
 
 // -----------------------------------------------------------------------------
@@ -242,8 +250,8 @@ export function calcularTotal(
     alumnos: Alumno[],
     callback: (alumno: Alumno) => number
 ): number {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (Hecho)
+    return alumnos.reduce((total, alumno) => total + callback(alumno), 0)
 }
 
 // -----------------------------------------------------------------------------
@@ -264,8 +272,20 @@ export function calcularTotal(
 export function agruparPorCiudad(
     alumnos: Alumno[]
 ): Record<string, Alumno[]> {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (Hecho)
+    return alumnos.reduce((acumulador, alumno) => {
+        const ciudad = alumno.ciudad;
+
+        // Si una ciudad todavia no existe en el objeto acumulador,
+        // se crea una lista vacía nueva para esa ciudad.
+        if (!acumulador[ciudad]) {
+            acumulador[ciudad] = [];
+        }
+
+        acumulador[ciudad].push(alumno);
+
+        return acumulador;
+    }, {} as Record<string, Alumno[]>);
 }
 
 // -----------------------------------------------------------------------------
@@ -291,8 +311,20 @@ export interface Estadisticas {
 export function obtenerEstadisticas(
     alumnos: Alumno[]
 ): Estadisticas {
-    // TODO
-    throw new Error("Implementar");
+    // TODO (Hecho)
+    const total = alumnos.length;
+    const aprobados = cantidadAprobados(alumnos);
+    const desaprobados = total - aprobados;
+    const prom = calcularPromedio(alumnos);
+    const mejorAlum = obtenerMejorAlumno(alumnos);
+
+    return {
+        cantidadTotal: total,
+        cantidadAprobados: aprobados,
+        cantidadDesaprobados: desaprobados,
+        promedio: prom,
+        mejorAlumno: mejorAlum
+    };
 }
 
 // -----------------------------------------------------------------------------
